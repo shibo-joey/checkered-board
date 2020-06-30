@@ -60,3 +60,35 @@
 .square-orange {
   background-color: rgb(253, 252, 251);
 }
+
+.circleRed {
+  background: #d94545;
+  clip-path: circle(50%);
+  height: 40px;
+  width: 40px;
+}
+
+.circleBlack {
+  background: #161515;
+  clip-path: circle(50%);
+  height: 40px;
+  width: 40px;
+}
+
+.circleColor {
+  background: #5296a1;
+  clip-path: circle(50%);
+  height: 40px;
+  width: 40px;
+}
+
+.circleShape {
+  background: #5296a1;
+
+  height: 40px;
+  width: 40px;
+}
+
+.initialType {
+  height: auto;
+}

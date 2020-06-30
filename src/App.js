@@ -6,11 +6,28 @@ function App() {
   const [size, setSize] = useState(6);
   const [userInput, setUserInput] = useState("");
 
+  const [classType, setType] = useState(true);
+  let btn_shapeClass = classType ? "circleRed" : "circleShape";
+
+  let toptwo = <div className={btn_shapeClass}></div>;
   var squares = [];
   var color = 0;
+
   for (let i = 0; i < size * size; ++i) {
     if (i % size == 0) {
       ++color;
+    }
+
+    if (i < size * 2) {
+      toptwo = <div className={classType}></div>;
+    }
+
+    if (i >= size * 2) {
+      toptwo = <div></div>;
+    }
+
+    if (i >= size * size - size * 2) {
+      toptwo = <div className="circleBlack"></div>;
     }
     squares.push(
       <div
@@ -18,7 +35,8 @@ function App() {
           "square " + (color++ % 2 == 0 ? "square-yellow" : "square-orange")
         }
       >
-        {i}
+        {/* {i} */}
+        {toptwo}
       </div>
     );
   }
@@ -34,6 +52,15 @@ function App() {
       setUserInput("");
     }
     event.preventDefault();
+  };
+
+  const changeShape = () => {
+    toptwo = <div className={btn_shapeClass}></div>;
+    console.log("clicked");
+    setType(!classType);
+  };
+  const changeColor = () => {
+    toptwo = <div className="circleColor"></div>;
   };
 
   return (
@@ -71,6 +98,12 @@ function App() {
           />
         </div>
       </form>
+      <div
+        style={{ marginTop: "50px", marginLeft: "20px", flexDirection: "col" }}
+      >
+        <button onClick={changeShape}>change shape</button>
+        <button onClick={changeColor}>change color</button>
+      </div>
     </div>
   );
 }
