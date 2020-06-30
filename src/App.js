@@ -7,7 +7,9 @@ function App() {
   const [userInput, setUserInput] = useState("");
 
   const [classType, setType] = useState(true);
+  const [classColor, setColor] = useState(true);
   let btn_shapeClass = classType ? "circleRed" : "circleShape";
+  let btn_colorClass = classColor ? "circleBlack" : "circleColor";
 
   let toptwo = <div className={btn_shapeClass}></div>;
   var squares = [];
@@ -19,7 +21,7 @@ function App() {
     }
 
     if (i < size * 2) {
-      toptwo = <div className={classType}></div>;
+      toptwo = <div className={btn_shapeClass}></div>;
     }
 
     if (i >= size * 2) {
@@ -27,7 +29,7 @@ function App() {
     }
 
     if (i >= size * size - size * 2) {
-      toptwo = <div className="circleBlack"></div>;
+      toptwo = <div className={btn_colorClass}></div>;
     }
     squares.push(
       <div
@@ -60,7 +62,8 @@ function App() {
     setType(!classType);
   };
   const changeColor = () => {
-    toptwo = <div className="circleColor"></div>;
+    toptwo = <div className={btn_colorClass}></div>;
+    setColor(!classColor);
   };
 
   return (
